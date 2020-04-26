@@ -1,0 +1,70 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-8">
+      <h4>Precios:</h4>
+      <ul>
+        <li
+          *ngFor="let precio of precios"
+          (click)="mostrarPreciosEditados(precio)"
+        >
+          <a [routerLink]="['/precio/', precio.id]"
+            >Suscripcion {{ precio.nombre }}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <h4>Agregar/Editar</h4>
+      <form action="" [formGroup]="formularioPrecio">
+        <div class="form-group">
+          <label for="">nombre</label>
+          <input formControlName="nombre" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="">costo</label>
+          <input formControlName="costo" type="number" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="">duracion</label>
+          <input
+            formControlName="duracion"
+            type="number"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="">Tipo Duracion</label>
+          <select
+            name=""
+            id=""
+            class="form-control"
+            formControlName="tipoDuracion"
+          >
+            <option value="0">Seleccione duracion...</option>
+            <option value="1">Diaria</option>
+            <option value="2">Semanal</option>
+            <option value="3">Quincenal</option>
+            <option value="4">Mensual</option>
+            <option value="5">Anual</option>
+          </select>
+        </div>
+        <button
+          (click)="agregar()"
+          *ngIf="!esEditar"
+          [disabled]="formularioPrecio.invalid"
+          class="btn btn-primary"
+        >
+          Agregar
+        </button>
+        <button
+          *ngIf="esEditar"
+          [disabled]="formularioPrecio.invalid"
+          class="btn btn-warning"
+          (click)="editar()"
+        >
+          Editar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

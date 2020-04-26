@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "estudiantes-7e2fc": {
+      "hosting": {
+        "gym": [
+          "estudiantes-7e2fc"
+        ]
+      }
+    }
+  }
+}

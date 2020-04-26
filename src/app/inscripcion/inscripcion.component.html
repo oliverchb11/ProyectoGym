@@ -1,0 +1,53 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-6">
+      <app-selecionar-cliente
+        (canceloCliente)="eliminarCliente()"
+        [nombre]="clienteSeleccionado.nombre"
+        (seleccionoCliente)="asignarCliente($event)"
+      ></app-selecionar-cliente>
+      <div class="form-group">
+        <label for="">Precio</label>
+        <select name="" [(ngModel)]="idPrecio" class="form-control"  (change)="seleccionarPrecio($event.target.value)" id="">
+          <option [value]="null">Seleccione...</option>
+          <option [value]="precio.id" *ngFor="let precio of precios"
+            >{{ precio.nombre }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Fecha Inicio</label>
+        <input type="date" [value]="inscripcion.fecha | date:'yyyy-MM-dd'" disabled class="form-control">
+         </div>
+      <div class="form-group">
+        <label for="">Fecha Final</label>
+        <input type="date" [value]="inscripcion.fechaFinal | date:'yyyy-MM-dd'" disabled class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Sub Total</label>
+        <input type="number" [value]="inscripcion.subTotal " disabled class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">IVA</label>
+        <input type="number" [value]="inscripcion.iva " disabled class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Total</label>
+        <input type="number" [value]="inscripcion.total " disabled class="form-control">
+      </div>
+      <button class="btn btn-primary" (click)="guardar()">Guardar</button>
+    </div>
+
+    <div class="col-sm-6 " >
+      <div class="imgCliente card" *ngIf="clienteSeleccionado.ImgUrl" >     
+         <img
+        height="80"
+        width="80"
+        class="card-img-top"
+        [src]="clienteSeleccionado.ImgUrl"
+      />
+    </div>
+
+    </div>
+  </div>
+</div>

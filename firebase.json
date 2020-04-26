@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "gym",
+      "public": "dist/gym",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
