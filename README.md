@@ -1,4 +1,5 @@
 # Gym
+Proyecto de GYM utilizando FIREBASE como base de datos Y angular como frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
